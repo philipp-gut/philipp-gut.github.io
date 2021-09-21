@@ -10,7 +10,10 @@
 
 .sticky {
     padding: 10px;
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -o-sticky;
+    position: -ms-sticky;
     position: sticky;
     bottom: 0;
   }
