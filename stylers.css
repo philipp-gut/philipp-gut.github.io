@@ -9,6 +9,7 @@
 }
 
 .sticky {
+    transition: 0.5s all;
     padding: 10px;
     position: -webkit-sticky;
     position: -moz-sticky;
