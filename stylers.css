@@ -7,3 +7,10 @@
 * {
     font-family: 'Inter', sans-serif;
 }
+
+.sticky {
+    padding: 10px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    bottom: 0;
+  }
