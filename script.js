@@ -25,7 +25,7 @@ window.onload = () => {
       if (button.value == "true" && button.checked || button.value !== "true" && !button.checked) {
         button.parentElement.style = "background-color: #C1E1C1; transition: 0.5s ease-in";
         correct++;
-        score++;
+        score++
       } else {
         button.parentElement.style = "background-color: #E1C1C1; transition: 0.5s ease-in";
         incorrect++;
@@ -42,4 +42,6 @@ window.onload = () => {
     }
     let currentScore = parseInt(window.localStorage.getItem("score")) || 0;
     window.localStorage.setItem("score", currentScore + score);
+    window.localStorage.setItem("correct", correct);
+    window.localStorage.setItem("incorrect", currentScore);
   }
