@@ -17,21 +17,26 @@
       let saveForm = () => {
         let score = 0;
         let parent;
+        let correct = 0;
+        let incorrect = 0;
         document.querySelectorAll('.value').forEach(function(button) {
           parent = button.parentElement.parentElement;
           button.disabled = true;
           if (button.value == "true" && button.checked || button.value !== "true" && !button.checked) {
             button.parentElement.style = "background-color: #C1E1C1; transition: 0.5s ease-in";
-            score = score + 1;
+            correct++;
+            score++;
           } else {
             button.parentElement.style = "background-color: #E1C1C1; transition: 0.5s ease-in";
-            score = score - 1;
+            incorrect++;
+            score--;
           }
         });
+        if (score < 0) score = 0;
         if (parent.querySelector(".score") == null) {
         let p = document.createElement("p");
         p.className = "score";
-        p.innerHTML = `Punktzahl: ${score}`;
+        p.innerHTML = `Punktzahl: ${score}<br>Korrekt: ${correct}<br>Inkorrekt: ${incorrect}`;
         parent.appendChild(p);
         parent.querySelector(".submit").disabled = true;
         }
@@ -53,7 +58,7 @@
         <p class="hint">Multiple choice</p>
         <h4>Der Konjunktiv wird gebildet mit...</h4>
       <div class="form-check">
-        <input class="form-check-input value" type="checkbox" value="true" id="test">
+        <input class="form-check-input value" type="checkbox" value="true">
         <label class="form-check-label" for="flexRadioDefault1">Präsensstamm</label>
       </div>
 
@@ -81,42 +86,39 @@
         <input class="form-check-input value" type="checkbox">
         <label class="form-check-label" for="flexRadioDefault2">Es gibt keine regelmäßige Bildung</label>
       </div>
-      <input type="submit" class="submit">
-    </form>
 
     <br><br><br>
 
-    <form action="javascript:saveForm()">
       <h3>II - Konjunktivbildung</h3><br>
       <p class="hint">Multiple choice</p>
       <h4>Der Konjunktiv wird gebildet mit...</h4>
     <div class="form-check">
-      <input class="form-check-input value1" type="checkbox" value="true" id="test">
+      <input class="form-check-input value" type="checkbox" value="true">
       <label class="form-check-label" for="flexRadioDefault1">Präsensstamm</label>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input value1" type="checkbox" value="true">
+      <input class="form-check-input value" type="checkbox" value="true">
       <label class="form-check-label" for="flexRadioDefault2">re oder ere</label>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input value1" type="checkbox">
+      <input class="form-check-input value" type="checkbox">
       <label class="form-check-label" for="flexRadioDefault2">Perfektstamm + re</label>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input value1" type="checkbox">
+      <input class="form-check-input value" type="checkbox">
       <label class="form-check-label" for="flexRadioDefault2">Infinitiv</label>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input value1" type="checkbox" value="true">
+      <input class="form-check-input value" type="checkbox" value="true">
       <label class="form-check-label" for="flexRadioDefault2">Personalendung</label>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input value1" type="checkbox">
+      <input class="form-check-input value" type="checkbox">
       <label class="form-check-label" for="flexRadioDefault2">Es gibt keine regelmäßige Bildung</label>
     </div>
     <input type="submit" class="submit">
