@@ -43,5 +43,6 @@ window.onload = () => {
     let currentScore = parseInt(window.localStorage.getItem("score")) || 0;
     window.localStorage.setItem("score", currentScore + score);
     window.localStorage.setItem("correct", correct);
-    window.localStorage.setItem("incorrect", currentScore);
+    window.localStorage.setItem("incorrect", incorrect);
+    document.getElementById("res").style = "display: block;"
   }

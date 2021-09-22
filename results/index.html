@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      window.onload = () => {
+
+        let score = $("#score");
+        let correct = $("#correct");
+        let incorrect = $("#incorrect");
+
+        let scoreLabel = document.getElementById("scoreLabel");
+        let correctLabel = document.getElementById("correctLabel");
+        let incorrectLabel = document.getElementById("incorrectLabel");
+
+        let s = parseInt(window.localStorage.getItem("score"));
+        let c = parseInt(window.localStorage.getItem("correct"));
+        let i = parseInt(window.localStorage.getItem("incorrect"));
+
+        let localScore = parseInt(s) / 30 * 100;
+        let localCorrect = parseInt(c) / 30 * 100;
+        let localIncorrect = parseInt(i) / 30 * 100;
+
+        scoreLabel.innerHTML = "Punkte: " + s;
+        correctLabel.innerHTML = "Korrekt: " + c;
+        incorrectLabel.innerHTML = "Inkorrekt: " + i;
+
+        score.css("width", localScore + '%');
+          $({animatedValue: 0}).animate({ animatedValue: localScore }, {
+            duration: 1000,
+            step: () => {
+              score.attr('per', Math.floor(localScore) + '%');
+            },
+            complete: () => {
+              console.log(this.animatedValue);
+              score.attr('per', Math.floor(localScore) + '%');
+          }
+        });
+
+        correct.css("width", localCorrect + '%');
+          $({animatedValue: 0}).animate({ animatedValue: localCorrect }, {
+            duration: 1000,
+            step: () => {
+              correct.attr('per', Math.floor(localCorrect) + '%');
+            },
+            complete: () => {
+              correct.attr('per', Math.floor(localCorrect) + '%');
+          }
+        });
+
+        incorrect.css("width", localIncorrect + '%');
+          $({animatedValue: 0}).animate({ animatedValue: localIncorrect }, {
+            duration: 1000,
+            step: () => {
+              incorrect.attr('per', Math.floor(localIncorrect) + '%');
+            },
+            complete: () => {
+              incorrect.attr('per', Math.floor(localIncorrect) + '%');
+          }
+        });
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div class="skills">
+      <div class="skill">
+        <div class="skill-name" id="scoreLabel"></div><br>
+        <div class="skill-bar">
+          <div class="skill-per" id="score"></div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div class="skill">
+        <div class="skill-name" id="correctLabel"></div><br>
+        <div class="skill-bar">
+          <div class="skill-per" id="correct"></div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div class="skill">
+        <div class="skill-name" id="incorrectLabel"></div><br>
+        <div class="skill-bar">
+          <div class="skill-per" id="incorrect"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
